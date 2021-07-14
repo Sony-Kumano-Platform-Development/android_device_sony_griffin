@@ -12,18 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/aosp_j8110.mk \
-                     $(LOCAL_DIR)/aosp_j9110.mk \
-                     $(LOCAL_DIR)/lineage_j8110.mk \
-                     $(LOCAL_DIR)/lineage_j9110.mk
+# Inherit device parts
+$(call inherit-product, device/sony/griffin/aosp_j9110.mk)
 
-COMMON_LUNCH_CHOICES += \
-    aosp_j8110-eng \
-    aosp_j8110-userdebug \
-    aosp_j9110-eng \
-    aosp_j9110-userdebug \
-    lineage_j8110-eng \
-    lineage_j8110-userdebug \
-    lineage_j9110-eng \
-    lineage_j9110-userdebug
+# Override Product Name
+PRODUCT_NAME := lineage_j9110
 
+# Assert
+TARGET_OTA_ASSERT_DEVICE := griffin
